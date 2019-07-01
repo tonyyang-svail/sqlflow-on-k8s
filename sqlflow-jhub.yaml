@@ -32,11 +32,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: sqlflow-jhub-frontend
+  name: sqlflow-jhub
   labels:
     app: sqlflow-jhub
 spec:
-  # comment or delete the following line if you want to use a LoadBalancer
   type: LoadBalancer
   ports:
   - port: 8000
