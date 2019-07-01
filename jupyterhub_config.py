@@ -34,7 +34,7 @@ c.KubeSpawner.storage_pvc_ensure = False
 c.JupyterHub.allow_named_servers = True
 
 # container tonyyang/sqlflow:sqlflow need to be run at root to start MySQL
-c.KubeSpawner.singleuser_uid = 0
+c.KubeSpawner.uid = 0
 c.KubeSpawner.profile_list = [
     {
         'display_name': 'SQLFlow Playground',
