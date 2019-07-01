@@ -1,0 +1,8 @@
+FROM jupyterhub/jupyterhub
+
+RUN pip install jupyterhub-kubespawner jupyterhub-dummyauthenticator
+
+COPY jupyterhub_config.py /etc/jhub/jupyterhub_config.py
+
+CMD ["jupyterhub", "--config", "/etc/jhub/jupyterhub_config.py"]
+

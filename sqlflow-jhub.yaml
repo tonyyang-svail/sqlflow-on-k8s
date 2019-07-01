@@ -1,0 +1,43 @@
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: sqlflow-jhub
+spec:
+  selector:
+    matchLabels:
+      app: sqlflow-jhub
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: sqlflow-jhub
+    spec:
+      volumes:
+      - name: shared-data
+        emptyDir: {}
+      containers:
+      - image: "tonyyang/sqlflow:jhub"
+        name: sqlflow-jhub
+        imagePullPolicy: Always
+        command: ["jupyterhub"]
+        args: ["--config", "/etc/jhub/jupyterhub_config.py"]
+        ports:
+        - containerPort: 8000
+          hostPort: 8000
+          name: sqlflow-jhub
+
+# ---
+# 
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: sqlflow-jhub-frontend
+#   labels:
+#     app: sqlflow-jhub
+# spec:
+#   # comment or delete the following line if you want to use a LoadBalancer
+#   type: LoadBalancer
+#   ports:
+#   - port: 8000
+
