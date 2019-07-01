@@ -27,17 +27,17 @@ spec:
           hostPort: 8000
           name: sqlflow-jhub
 
-# ---
-# 
-# apiVersion: v1
-# kind: Service
-# metadata:
-#   name: sqlflow-jhub-frontend
-#   labels:
-#     app: sqlflow-jhub
-# spec:
-#   # comment or delete the following line if you want to use a LoadBalancer
-#   type: LoadBalancer
-#   ports:
-#   - port: 8000
+ ---
+ 
+ apiVersion: v1
+ kind: Service
+ metadata:
+   name: sqlflow-jhub-frontend
+   labels:
+     app: sqlflow-jhub
+ spec:
+   # comment or delete the following line if you want to use a LoadBalancer
+   type: LoadBalancer
+   ports:
+   - port: 8000
 
