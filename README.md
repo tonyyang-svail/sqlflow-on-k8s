@@ -1,4 +1,4 @@
-# sqlflow-on-k8s
+# Run SQLFlow on Google Cloud Platform
 
 Step 0: Get a k8s cluster.
 
