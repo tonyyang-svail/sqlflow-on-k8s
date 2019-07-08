@@ -11,12 +11,12 @@ kubectl apply -f manifests/rbac.yaml
 Step 2: Deploy the JupyterHub pod on Kubernetes.
 
 ```
-$ kubectl create -f sqlflow-jhub.yaml
+$ kubectl create -f manifests/sqlflow-jhub.yaml
 deployment.apps/sqlflow-jhub created
 service/sqlflow-jhub created
 ```
 
-Step 3: Find the external ip for `service/sqlflow-jhub`. In this case, it is `34.67.182.237`.
+Step 3: Find the `<EXTERNAL-IP>` for `service/sqlflow-jhub`. In this case, it is `34.67.182.237`.
 
 ```
 $ kubectl get all
