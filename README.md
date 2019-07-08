@@ -1,4 +1,4 @@
-# Run SQLFlow on Google Cloud Platform
+# Run SQLFlow Playground on Google Cloud Platform
 
 Step 0: Get a k8s cluster.
 
