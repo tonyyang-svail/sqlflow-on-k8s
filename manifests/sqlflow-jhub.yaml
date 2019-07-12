@@ -32,11 +32,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: sqlflow-jhub
-  labels:
-    app: sqlflow-jhub
+  name: sqlflow-jhub-front
 spec:
   type: LoadBalancer
+  selector:
+    app: sqlflow-jhub
   ports:
   - port: 8000
 
