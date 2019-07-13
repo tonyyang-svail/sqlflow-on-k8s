@@ -33,6 +33,8 @@ c.KubeSpawner.storage_pvc_ensure = False
 
 c.JupyterHub.allow_named_servers = True
 
+c.KubeSpawner.extra_pod_config.update({'restartPolicy': 'Never'})
+
 # container tonyyang/sqlflow:sqlflow need to be run at root to start MySQL
 c.KubeSpawner.uid = 0
 c.KubeSpawner.profile_list = [
@@ -50,5 +52,13 @@ c.KubeSpawner.profile_list = [
 c.KubeSpawner.extra_containers = [{
     "name": "sqlflow",
     "image": "tonyyang/sqlflow:sqlflow",
+    # liveness Probe to Jupyter Notebook server
+    "livenessProbe": {
+        "exec" : {
+	    "command": ["curl", "localhost:8888"]
+	},
+	"initialDelaySeconds": 600,
+	"periodSeconds": 60,
+    }
 }]
 

@@ -4,6 +4,15 @@ ENV SQLFLOW_SERVER localhost:50051
 
 RUN pip install sqlflow numpy
 
+RUN echo "\n" >> /etc/jupyter/jupyter_notebook_config.py
+RUN echo "# shutdown the server after no activity for an hour" >> /etc/jupyter/jupyter_notebook_config.py
+RUN echo "c.NotebookApp.shutdown_no_activity_timeout = 60 * 60" >> /etc/jupyter/jupyter_notebook_config.py
+RUN echo "# shutdown kernels after no activity for 20 minutes" >> /etc/jupyter/jupyter_notebook_config.py
+RUN echo "c.MappingKernelManager.cull_idle_timeout = 20 * 60" >> /etc/jupyter/jupyter_notebook_config.py
+RUN echo "# check for idle kernels every two minutes" >> /etc/jupyter/jupyter_notebook_config.py
+RUN echo "c.MappingKernelManager.cull_interval = 1 * 60" >> /etc/jupyter/jupyter_notebook_config.py
+RUN echo "\n" >> /etc/jupyter/jupyter_notebook_config.py
+
 # Add example
 RUN wget https://raw.githubusercontent.com/sql-machine-learning/sqlflow/develop/example/jupyter/example.ipynb -O /home/jovyan/example.ipynb
 
