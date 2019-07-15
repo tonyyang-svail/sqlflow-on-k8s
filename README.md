@@ -5,7 +5,7 @@ Step 0: Get a k8s cluster.
 Step 1: Grant pod-related permissions for the default user.
 
 ``` bash
-> kubectl apply -f manifests/rbac.yaml
+$ kubectl apply -f manifests/rbac.yaml
 ```
 
 Step 2: Deploy the JupyterHub pod on Kubernetes.
@@ -21,7 +21,7 @@ service/sqlflow-jhub created
 
 Step 3: Find the `<EXTERNAL-IP>` for `service/sqlflow-jhub`. In this case, it is `34.67.182.237`.
 
-```
+``` bash
 $ kubectl get all
 NAME                                READY   STATUS    RESTARTS   AGE
 pod/sqlflow-jhub-77858f4655-7wpt8   1/1     Running   0          2m39s
