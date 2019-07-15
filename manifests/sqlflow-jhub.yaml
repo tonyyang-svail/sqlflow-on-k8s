@@ -17,7 +17,7 @@ spec:
       - name: shared-data
         emptyDir: {}
       containers:
-      - image: "tonyyang/sqlflow:jhub"
+      - image: "yancey1989/sqlflowhub"
         name: sqlflow-jhub
         imagePullPolicy: Always
         command: ["jupyterhub"]
@@ -26,6 +26,13 @@ spec:
         - containerPort: 8000
           hostPort: 8000
           name: sqlflow-jhub
+        env:
+        - name: GITHUB_CLIENT_ID
+          value: ""
+        - name: GITHUB_CLIENT_SECRET
+          value: ""
+        - name: OAUTH_CALLBACK_URL
+          value: "http://play.sqlflow.org:8000/hub/oauth_callback"
 
 ---
 

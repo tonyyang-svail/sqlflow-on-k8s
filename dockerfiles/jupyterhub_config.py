@@ -1,7 +1,6 @@
 import os
 import socket
 
-
 c.JupyterHub.spawner_class = 'kubespawner.KubeSpawner'
 
 c.JupyterHub.ip = '0.0.0.0'
@@ -26,7 +25,12 @@ c.JupyterHub.hub_connect_ip = c.KubeSpawner.hub_connect_ip
 
 c.KubeSpawner.service_account = 'default'
 # Do not use any authentication at all - any username / password will work.
-c.JupyterHub.authenticator_class = 'dummyauthenticator.DummyAuthenticator'
+#c.JupyterHub.authenticator_class = 'dummyauthenticator.DummyAuthenticator'
+
+c.JupyterHub.authenticator_class = 'oauthenticator.GitHubOAuthenticator'
+c.GitHubOAuthenticator.oauth_callback_url = os.environ['OAUTH_CALLBACK_URL']
+c.Authenticator.admin_users = {'yancey1989'}
+
 
 c.KubeSpawner.image_pull_policy = 'Always'
 c.KubeSpawner.storage_pvc_ensure = False
