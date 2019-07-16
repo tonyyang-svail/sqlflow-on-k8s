@@ -32,7 +32,7 @@ spec:
         - name: GITHUB_CLIENT_SECRET
           value: ""
         - name: OAUTH_CALLBACK_URL
-          value: "http://play.sqlflow.org:8000/hub/oauth_callback"
+          value: "http://play.sqlflow.org/hub/oauth_callback"
 
 ---
 
