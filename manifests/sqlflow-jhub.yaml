@@ -17,7 +17,7 @@ spec:
       - name: shared-data
         emptyDir: {}
       containers:
-      - image: "yancey1989/sqlflowhub"
+      - image: "tonyyang/sqlflow:jhub"
         name: sqlflow-jhub
         imagePullPolicy: Always
         command: ["jupyterhub"]
