@@ -1,6 +1,9 @@
 FROM jupyterhub/jupyterhub
 
-RUN pip install jupyterhub-kubespawner jupyterhub-dummyauthenticator
+# FIXME(Yancey1989): jupyterhub-kubespawner does not works well with the latest kubernetes client library: https://gitter.im/jupyterhub/jupyterhub?at=5d23a32fd0e06b66756db1da
+RUN pip install jupyterhub-kubespawner jupyterhub-dummyauthenticator oauthenticator \
+    kubernetes==9.0.0
+
 
 COPY jupyterhub_config.py /etc/jhub/jupyterhub_config.py
 

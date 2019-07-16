@@ -26,6 +26,13 @@ spec:
         - containerPort: 8000
           hostPort: 8000
           name: sqlflow-jhub
+        env:
+        - name: GITHUB_CLIENT_ID
+          value: ""
+        - name: GITHUB_CLIENT_SECRET
+          value: ""
+        - name: OAUTH_CALLBACK_URL
+          value: "http://play.sqlflow.org/hub/oauth_callback"
 
 ---
 
