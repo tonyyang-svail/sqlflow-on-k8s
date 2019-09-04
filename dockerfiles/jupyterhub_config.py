@@ -56,6 +56,7 @@ c.KubeSpawner.profile_list = [
 c.KubeSpawner.extra_containers = [{
     "name": "sqlflow",
     "image": "tonyyang/sqlflow:sqlflow",
+    "imagePullPolicy": "Always",
     # liveness Probe to Jupyter Notebook server
     "livenessProbe": {
         "exec" : {
